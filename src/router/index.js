@@ -6,6 +6,10 @@ const TheContainer = () => import('@/containers/TheContainer')
 
 // Views
 const Dashboard = () => import('@/views/Dashboard')
+const Healthmap = () => import('@/views/Healthmap')
+const Educationmap = () => import('@/views/Educationmap')
+const Activemap = () => import('@/views/Activemap')
+const Socialmap = () => import('@/views/Socialmap')
 
 Vue.use(Router)
 
@@ -26,8 +30,28 @@ function configRoutes () {
       children: [
         {
           path: 'dashboard',
-          name: 'Dashboard',
+          name: 'Статистика',
           component: Dashboard
+        },
+        {
+          path: 'healthmap',
+          name: 'Карта здоровья',
+          component: Healthmap
+        },
+        {
+          path: 'educationmap',
+          name: 'Карта компетенций',
+          component: Educationmap
+        },
+        {
+          path: 'activemap',
+          name: 'Карта активности',
+          component: Activemap
+        },
+        {
+          path: 'socialmap',
+          name: 'Карта социализации',
+          component: Socialmap
         },
       ]
     }

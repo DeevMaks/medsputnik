@@ -1,10 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import nav from './navigation/_nav';
 Vue.use(Vuex)
 
 const state = {
   sidebarShow: 'responsive',
-  sidebarMinimize: false
+  sidebarMinimize: false,
+  role: 'patient'
+}
+
+const getters = {
+  navigation(state) {
+    return [
+      {
+        _name: 'CSidebarNav',
+        _children: nav.filter(element => element.roles.includes(state.role))
+      }
+    ]
+  }
 }
 
 const mutations = {
@@ -23,5 +36,6 @@ const mutations = {
 
 export default new Vuex.Store({
   state,
+  getters,
   mutations
 })
